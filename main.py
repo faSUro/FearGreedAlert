@@ -69,9 +69,9 @@ try:
     elif index < FEAR_LEVEL:
         level = 'FEAR'
     elif index > EXTREME_GREED_LEVEL:
-        level = 'GREED'
-    elif index > GREED_LEVEL:
         level = 'EXTREME GREED'
+    elif index > GREED_LEVEL:
+        level = 'GREED'
     else:
         exit(0)  # Index is in neutral range, no email has to be sent
 
