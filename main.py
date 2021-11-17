@@ -3,6 +3,7 @@ import requests
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
+import sys
 
 # Threshold to decide whether to send the email or not
 EXTREME_FEAR_LEVEL = 25
@@ -14,16 +15,17 @@ EXTREME_GREED_LEVEL = 75
 suggestion = {'EXTREME FEAR': "sell your house and buy this shit, seriously",
               'FEAR': "start buying by bartering some of your possessions, not all of them",
               'GREED': "start selling, things are getting hot",
-              'EXTREME GREED': "sell all your coins before this bubble pops and a stallion jams his dick in your ass"}
+              'EXTREME GREED': "sell all your coins before this bubble pops and a stallion jams his dick in your ass",
+              'NEUTRAL': "chill, nothing big is going on"}
 
 
 def retrieve_mail_bot_credentials():
-    with open('mail bot credentials.txt', 'r') as c:
+    with open('C:\\Users\\fasul\\OneDrive\\Documents\\Python Automation\\FeaGA Bot\\mail bot credentials.txt', 'r') as c:
         return c.read().splitlines()
 
 
 def retrieve_mailing_list():
-    with open('mailing list.txt', 'r') as c:
+    with open('C:\\Users\\fasul\\OneDrive\\Documents\\Python Automation\\FeaGA Bot\\mailing list.txt', 'r') as c:
         return c.read().splitlines()
 
 
@@ -73,7 +75,7 @@ try:
     elif index > GREED_LEVEL:
         level = 'GREED'
     else:
-        exit(0)  # Index is in neutral range, no email has to be sent
+        level = 'NEUTRAL'
 
     # Building the message
     message = f"""<html><head></head><body>The Fear & Greed Index is <b>{index}</b>, corresponding to <b>{level}</b
@@ -85,6 +87,6 @@ try:
     # Sending emails...
     send_alert_mail(message)
 except Exception as e:
-    with open('errorLog.txt', 'a') as f:
+    with open('C:\\Users\\fasul\\OneDrive\\Documents\\Python Automation\\FeaGA Bot\\errorLog.txt', 'a') as f:
         f.write(str(datetime.now()) + ': ' + str(e) + '\n')
-    exit(-1)
+    sys.exit(-1)
