@@ -15,7 +15,7 @@ EXTREME_GREED_LEVEL = 75
 suggestion = {'EXTREME FEAR': "sell your house and buy this shit, seriously",
               'FEAR': "start buying by bartering some of your possessions, not all of them",
               'GREED': "start selling, things are getting hot",
-              'EXTREME GREED': "sell all your coins before this bubble pops and a stallion jams his dick in your ass",
+              'EXTREME GREED': "sell all your coins before this bubble pops and you're left with nothing",
               'NEUTRAL': "chill, nothing big is going on"}
 
 
